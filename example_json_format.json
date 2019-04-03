@@ -1,0 +1,71 @@
+{
+    "nodes":
+        [
+            {
+                "name":"for + glob / for + list.files",
+                "description":"Final outputs/ learning outcomes from PPP ep. 13 \"Looping Over Data Sets\"",
+                "id": "http://software-carpentry.org/lessons/"
+            },
+            {
+                "name":"for loops",
+                "description":"Python: PP episode 2; PPP ep. 12 \nR: PR ep. 3, ",
+                "id": "http://software-carpentry.org/lessons/:id"
+            },
+            {
+                "name":"dataframes ",
+                "description":"Python: PPP ep. 7/8\nR: PR ep. 1, RRSA ep. 5",
+                "id": "http://software-carpentry.org/lessons/:id"
+            },
+            {
+                "name":"Datastructures / variables",
+                "description":"R: PR ep. 13 RRSA 4",
+                "id": "http://software-carpentry.org/lessons/:id"
+            },
+            {
+                "name":"Lists",
+                "description":"Python: PPP ep. 11, PP ep. 3\nR: no lesson mapped",
+                "id": "http://software-carpentry.org/lessons/:id"
+            },
+            {   
+              "name":"variables / value assignment",
+              "description":"Python: PP ep. 1, PPP ep. 2",
+              "id": "http://software-carpentry.org/lessons/:id"
+            },
+            {
+                "name":"Jupyter/ipython or RStudio",
+                "description":"Python: PPP ep. 1 - prerequisite for PP\nR: PR ep. 9, RRSA ep. 1",
+                "id": "http://software-carpentry.org/lessons/:id"
+            },
+            {
+                "name":"Installation/ Set-up",
+                "description":"This is not part of a lesson, software carpentry lessons expect learners to come with key software installed",
+                "id": "http://software-carpentry.org/lessons/:id"
+            }
+        ],
+    "edges": 
+    [
+        {
+            "source":"http://software-carpentry.org/lessons/:id","target":"http://software-carpentry.org/lessons/:id"
+        },
+        {
+            "source":"http://software-carpentry.org/lessons/:id","target":"http://software-carpentry.org/lessons/:id
+        },
+        {
+            "source":"http://software-carpentry.org/lessons/:id","target":http://software-carpentry.org/lessons/:id"
+        },
+        {
+            "source":"http://software-carpentry.org/lessons/:id","target":"http://software-carpentry.org/lessons/:id"
+        },
+        {
+            "source":"http://software-carpentry.org/lessons/:id","target":"http://software-carpentry.org/lessons/:id"
+        },
+        {
+            "source":"http://software-carpentry.org/lessons/:id","target":"http://software-carpentry.org/lessons/:id"
+        },
+        {
+            "source":http://software-carpentry.org/lessons/:id","target":"http://software-carpentry.org/lessons/:id"
+        },{
+            "source":"http://software-carpentry.org/lessons/:id","target":"http://software-carpentry.org/lessons/:id"
+        }
+    ]
+}
