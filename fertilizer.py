@@ -7,5 +7,6 @@ class FertilizerSpider(scrapy.Spider):
     ]
     
     def parse(self, response):
+        print(self)
         for keyword in response.xpath('//dt/text()'):
             yield {'keywords': keyword.get()}
