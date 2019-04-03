@@ -6,10 +6,11 @@ import sys
 
 def extract(url):
     soup = bs(urlopen(url), features="lxml")
-    parsed = list(urlparse(url))
     keyword_array = []
-    for keyword in soup.findAll("dt"):
-        keyword_array.append(keyword.text)
+    for keyword in soup.findAll("tr"):
+        link = keyword.find('a')
+        if (link):
+            keyword_array.append(link.text)
     return keyword_array
 
 def _usage():
@@ -28,4 +29,11 @@ if __name__ == "__main__":
     for url in urls:
         data_index[url] = extract(url)
 
-    print(data_index)
+    target_lesson = 'http://swcarpentry.github.io/python-novice-gapminder/13-looping-data-sets/index.html'
+    soup = bs(urlopen(target_lesson), features="lxml")
+    prerequisite_lessons = []
+    for lesson_url, lesson_content in data_index.items():
+        for content in lesson_content:
+            if content in soup.text:
+                prerequisite_lessons.append(lesson_url)
+    print(set(prerequisite_lessons))
