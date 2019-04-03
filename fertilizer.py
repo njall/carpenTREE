@@ -1,15 +1,11 @@
 import scrapy
 
-class QuotesSpider(scrapy.Spider):
-
-    def start_requests(self):
-        urls = [
+class FertilizerSpider(scrapy.Spider):
+    name = 'Fertilizer'
+    start_urls = [
             'http://swcarpentry.github.io/r-novice-gapminder/reference'
-        ]
-        for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
-
+    ]
+    
     def parse(self, response):
-        page = response.xpath('//dt/text()').getall()
-        for i in page:
-            print(i, end=" ")
+        for keyword in response.xpath('//dt/text()'):
+            yield {'keywords': keyword.get()}
