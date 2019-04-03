@@ -21,7 +21,7 @@ The idea is to scrape software carpentries lessons for learning outcomes and pre
 
 ## Implementation
 
-fertilizer.py 
+fertilizer.py identifies the episodes within each carpentry lesson, takes the episode name (which can be extended to relevant keywords within the lesson text) and searches the text of a target lesson for occurences of the episode names extracted in step 1. The output is a list of prerequisites (episodes in other lessons) for a specific software carpentry episode.
 
 #### Ideas that didn't work 
 * using the glossary as this is lesson and not episode specific
