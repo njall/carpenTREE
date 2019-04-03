@@ -31,11 +31,22 @@ fertilizer.py identifies the episodes within each carpentry lesson, takes the ep
 
 ### Installation
 
+Generator dependencies 
 `pip install -r requirements.txt`
 
-Run with:
+Website dependencies
+`npm install`
 
-`python fertilizer.py'
+### Running 
+
+`python fertilizer.py`
+
+This creates a prerequisites.json file.
+Copy this into the src/main.js and run:
+
+`npm run dev`
+
+
 
 ## Further work
 
