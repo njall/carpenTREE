@@ -1,6 +1,10 @@
 # carpenTREE
 repo for carpentries lesson visualizatioin
 
-Run with
+### Installation
 
-`scrapy runspider fertilizer.py -o keywords.json`
+`pip install -r requirements.txt`
+
+Run with:
+
+`python fertilizer.py'
