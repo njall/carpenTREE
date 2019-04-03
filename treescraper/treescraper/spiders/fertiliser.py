@@ -8,4 +8,5 @@ class FertiliserSpider(scrapy.Spider):
     start_urls = ['http://http://swcarpentry.github.io/r-novice-gapminder/reference/']
 
     def parse(self, response):
-        pass
+        glossary = response.xpath('//dt/text()').getall()
+        yield glossary
