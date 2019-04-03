@@ -45,8 +45,8 @@ def get_prerequisites(target_lesson_url, episode_data):
 
         if episode["name"] in soup.text:
             print("Found", episode["name"], "in", target_lesson_url)
-            prerequisites.append({"name": episode["name"], "description": episode["name"], "id": episode["url"]})
-            edges.append({"source": episode["url"], "target": target_lesson_url})
+            prerequisites.append({"data": {"name": episode["name"],  "id": episode["url"]}})
+            edges.append({"data": {"source": episode["url"], "target": target_lesson_url}})
 
 
     return prerequisites, edges
