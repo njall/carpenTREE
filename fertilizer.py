@@ -46,6 +46,9 @@ def get_prerequisites(target_lesson_url, episode_data):
 
             prerequisites.append({"name": episode.name, "description": episode.name, "id": episode.url})
 
+    if "for" in soup.text:
+        prerequisites.append({"name": "lab", "description": "test", "id": "no url"})
+
     return prerequisites
 
 
