@@ -3,6 +3,7 @@ from urllib.request import (
     urlopen, urlparse, urlunparse, urlretrieve, urljoin)
 import os
 import sys
+import json
 
 def extract(url):
     # Grab the episode page
@@ -14,7 +15,7 @@ def extract(url):
         link = keyword.find('a')
         if (link):
             keyword_array.append(link.text)
-    return keyword_array
+    return ["keyword test"]
 
 
 def extract_episode_urls(url):
@@ -38,18 +39,17 @@ def get_prerequisites(target_lesson_url, episode_data):
 
     soup = bs(urlopen(target_lesson_url), features="lxml")
     prerequisites = []
+    edges = []
 
     for episode in episode_data:
 
         if episode["name"] in soup.text:
             print("Found", episode["name"], "in", target_lesson_url)
+            prerequisites.append({"name": episode["name"], "description": episode["name"], "id": episode["url"]})
+            edges.append({"source": episode["url"], "target": target_lesson_url})
 
-            prerequisites.append({"name": episode.name, "description": episode.name, "id": episode.url})
 
-    if "for" in soup.text:
-        prerequisites.append({"name": "lab", "description": "test", "id": "no url"})
-
-    return prerequisites
+    return prerequisites, edges
 
 
 def _usage():
@@ -70,8 +70,9 @@ if __name__ == "__main__":
     ]
 
     # Get all episodes from each lesson's reference page
+    episode_list = []
     for url in urls:
-        episode_list = extract_episode_urls(url)
+        episode_list = episode_list + extract_episode_urls(url)
 
     # Go through all the episodes and look for relevant keywords etc.
     # TODO: extract doesn't do anything useful yet!
@@ -79,8 +80,13 @@ if __name__ == "__main__":
     for episode in episode_list:
         episode["keywords"] = "test"
 
-    # Work out which episodes are prerequisites for the target
-    prerequisites = get_prerequisites(target_lesson, episode_list)
+    # print(episode_list)
 
-    print("Found the following prerequisites for lesson", target_lesson)
-    print(prerequisites)
+    # Work out which episodes are prerequisites for the target
+    prerequisites, edges = get_prerequisites(target_lesson, episode_list)
+
+    with open('prerequisites.json', 'w') as outfile:
+        json.dump({"nodes": prerequisites, "edges": edges}, outfile)
+
+    # print("Found the following prerequisites for lesson", target_lesson)
+    # print(prerequisites)
